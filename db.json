@@ -1,0 +1,58 @@
+{
+  "posts": [
+    {
+      "title": "yani",
+      "address": "nayi",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "title": "json-server3",
+      "author": "typicode3"
+    },
+    {
+      "title": "any",
+      "address": "any",
+      "id": 4
+    },
+    {
+      "title": "any",
+      "address": "any",
+      "id": 6
+    },
+    {
+      "title": "any",
+      "address": "any",
+      "id": 7
+    },
+    {
+      "title": "any",
+      "address": "any",
+      "id": 8
+    },
+    {
+      "title": "any",
+      "address": "any",
+      "id": 9
+    },
+    {
+      "title": "any",
+      "address": "any",
+      "id": 10
+    },
+    {
+      "title": "title",
+      "address": "address",
+      "id": 11
+    },
+    {
+      "title": "title",
+      "address": "address",
+      "id": 12
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
