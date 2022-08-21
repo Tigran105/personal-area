@@ -1,22 +1,16 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { getContacts } from "./actionCreater";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {addContact, deleteContact, updateContact, getContacts} from "./actionCreater";
+import {IContact} from "../Types/contact";
 
-export interface IData {
-    id?: number,
-    title?: string,
-    address?: string
-}
 
 interface IState {
-    contacts: Array<IData>,
+    contacts: IContact[],
     loading: boolean,
-    errorMessage: string
 }
 
 const initialState: IState = {
     contacts: [],
     loading: false,
-    errorMessage: ""
 }
 
 const slice = createSlice({
@@ -27,15 +21,31 @@ const slice = createSlice({
         [getContacts.pending.type]: (state: IState) => {
             state.loading = true
         },
-        [getContacts.fulfilled.type]: (state: IState, action: PayloadAction<IData[]>) => {
+        [getContacts.fulfilled.type]: (state: IState, action: PayloadAction<IContact[]>) => {
             state.contacts = action.payload
-            state.errorMessage = ''
             state.loading = false
         },
-        [getContacts.rejected.type]: (state: IState, action: PayloadAction<string>) => {
-            state.loading = false
-            state.errorMessage = action.payload
-        }
+        [addContact.pending.type]: (state: IState) => {
+            state.loading = true
+        },
+        [addContact.fulfilled.type]: (state: IState, action: PayloadAction<IContact[]>) => {
+            state.contacts = action.payload
+            state.loading = false;
+        },
+        [updateContact.pending.type]: (state: IState) => {
+            state.loading = true
+        },
+        [updateContact.fulfilled.type]: (state: IState, action: PayloadAction<IContact[]>) => {
+            state.contacts = action.payload
+            state.loading = false;
+        },
+        [deleteContact.pending.type]: (state: IState) => {
+            state.loading = true
+        },
+        [deleteContact.fulfilled.type]: (state: IState, action: PayloadAction<IContact[]>) => {
+            state.contacts = action.payload
+            state.loading = false;
+        },
     }
 })
 

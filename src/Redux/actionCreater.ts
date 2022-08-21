@@ -1,51 +1,102 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {fetchingWithAxiosMiddleware} from "../config";
-import {IData} from "./contact";
+import contactService from "../Services/contactService"
+import {IContact} from "../Types/contact";
+import {IUser} from "../Types/user";
+import userService from "../Services/userService";
+import {setMessage} from "./notification";
+
 
 export const getContacts = createAsyncThunk(
     "contact/fetchAll",
-    async (_: undefined, thunkAPI) => {
+    async (_: undefined, {dispatch}) => {
         try {
-            const response = await fetchingWithAxiosMiddleware("GET", "posts")
-            return response.data
-        } catch (error: unknown) {
-            return thunkAPI.rejectWithValue("Any text here")
+            return await contactService.getData()
+        } catch (error) {
+            dispatch(setMessage("Something went wrong! Please check your internet connection"))
         }
     }
 )
 
 export const addContact = createAsyncThunk(
     'contact/add',
-    async (data: IData, thunkAPI) => {
+    async (data: Omit<IContact, "id">, {dispatch}) => {
         try {
-            const response = await fetchingWithAxiosMiddleware("POST", "posts", data)
-            console.log(response.data, "<--------------response.data")
+            const response = await contactService.addContact(data)
+            dispatch(setMessage("Contact successfully added"))
+            return response
         } catch (error) {
-            return thunkAPI.rejectWithValue("Any text here")
+            dispatch(setMessage("Something went wrong!"))
         }
     }
 )
 
-export const editContact = createAsyncThunk(
+export const updateContact = createAsyncThunk(
     'contact/edit',
-    async (data: IData, thunkAPI) => {
+    async (data: IContact, {dispatch}) => {
         try {
-            const response = await fetchingWithAxiosMiddleware("PUT", `posts/${data.id}`, data)
-            console.log(response.data, "<--------------response.data")
+            const response = await contactService.updateContact(data)
+            dispatch(setMessage("Contact successfully updated"))
+            return response
         } catch (error) {
-            return thunkAPI.rejectWithValue("Any text here")
+            dispatch(setMessage("Something went wrong!"))
         }
     }
 )
 
 export const deleteContact = createAsyncThunk(
     'contact/delete',
-    async (id: number, thunkAPI) => {
+    async (id: number, {dispatch}) => {
         try {
-            const response = await fetchingWithAxiosMiddleware("DELETE", `posts/${id}`)
-            console.log(response.data, "<--------------response.data")
+            const response = await contactService.deleteContact(id)
+            dispatch(setMessage("Contact successfully deleted"))
+            return response
         } catch (error) {
-            return thunkAPI.rejectWithValue("Any text here")
+            dispatch(setMessage("Something went wrong!"))
+        }
+    }
+)
+
+export const login = createAsyncThunk(
+    "user/login",
+    async (data: Omit<IUser, "id">, {dispatch}) => {
+        try {
+            return await userService.login(data)
+        } catch (error) {
+            dispatch(setMessage("Something went wrong! Please check your email or password"))
+        }
+    }
+)
+
+export const logout = createAsyncThunk(
+    "user/logout",
+    async (_: undefined, {dispatch}) => {
+        try {
+            return await userService.logout()
+        } catch (error) {
+            dispatch(setMessage("Something went wrong!"))
+        }
+    }
+)
+
+export const registration = createAsyncThunk(
+    "user/registration",
+    async (data: Omit<IUser, "id">, {dispatch}) => {
+        try {
+            const users = await userService.getAll()
+            let isNewUser = true
+            users.forEach((user: IUser) => {
+                if (user.email === data.email) {
+                    isNewUser = false
+                }
+            })
+            if (!isNewUser) {
+                dispatch(setMessage("This email is already exists"))
+            }
+            const response = await userService.registration(data)
+            dispatch(setMessage("Successfully registered"))
+            return response
+        } catch (error) {
+            dispatch(setMessage("Something went wrong! Please check your email or password"))
         }
     }
 )
