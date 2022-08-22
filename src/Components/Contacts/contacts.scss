@@ -1,11 +1,11 @@
-
-.contacts-wrapper{
+.contacts-wrapper {
   position: relative;
-  .module-title{
+  padding: 25px;
+  .module-title {
     text-align: center;
   }
-  .contacts{
-    .search{
+  .contacts {
+    .search {
       margin-bottom: 15px;
     }
   }
@@ -17,21 +17,19 @@
     .dps-button-gradient:first-child {
       margin-left: 0;
     }
-    .add-contact-button{
+    .add-contact-button {
       width: 30%;
     }
   }
   .contacts-table {
     margin: 0 auto;
   }
-  .logout-button{
+  .logout-button {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
   }
 }
-
-
 
 .formForDeleteModal {
   margin: 0 auto;

@@ -1,15 +1,15 @@
 {
   "contacts": [
     {
-      "name": "add",
-      "email": "sda@e.t",
-      "address": "sadasd",
+      "name": "name1",
+      "email": "email1@gmail.com",
+      "address": "address 1",
       "id": 1
     },
     {
-      "name": "bb",
-      "email": "dsa@vcs.rt",
-      "address": "asdasd",
+      "name": "name 2",
+      "email": "email2@gmail.com",
+      "address": "address 2",
       "id": 2
     }
   ],
@@ -20,129 +20,9 @@
       "password": "password"
     },
     {
-      "id": 2,
-      "email": "email2",
-      "password": "password2"
-    },
-    {
-      "email": "new_email",
-      "password": "new_password",
-      "id": 3
-    },
-    {
-      "email": "new_email1",
-      "password": "new_password2",
-      "id": 4
-    },
-    {
-      "email": "email_rrr",
-      "password": "password_rrr",
-      "id": 5
-    },
-    {
-      "email": "sad",
-      "password": "sad",
-      "id": 6
-    },
-    {
-      "email": "a",
-      "password": "b",
-      "id": 7
-    },
-    {
-      "email": "r",
-      "password": "c",
-      "id": 8
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 9
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 10
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 11
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 12
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 13
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 14
-    },
-    {
-      "email": "",
-      "password": "",
-      "id": 15
-    },
-    {
-      "email": "p",
-      "password": "o",
-      "id": 16
-    },
-    {
-      "email": "p",
-      "password": "o",
-      "id": 17
-    },
-    {
-      "email": "ps",
-      "password": "os",
-      "id": 18
-    },
-    {
-      "email": "ps",
-      "password": "os",
-      "id": 19
-    },
-    {
-      "email": "ps",
-      "password": "os",
-      "id": 20
-    },
-    {
-      "email": "new",
-      "password": "new",
-      "id": 21
-    },
-    {
-      "email": "email",
-      "password": "password",
-      "id": 22
-    },
-    {
-      "email": "email",
-      "password": "password",
-      "id": 23
-    },
-    {
-      "email": "all@all.ru",
-      "password": "asd",
-      "id": 24
-    },
-    {
-      "email": "r@m.r",
-      "password": "w",
-      "id": 25
-    },
-    {
-      "email": "s@e.r",
-      "password": "w",
-      "id": 26
+      "email": "a@a.a",
+      "password": "a",
+      "id": 2
     }
   ],
   "profile": {
